@@ -82,44 +82,62 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. Section "My Favorite Pancake Recipe" */}
-      <section className="py-24 px-6 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-          <div className="w-full lg:w-1/2 relative">
-            <div className="absolute inset-0 bg-brand-orange/10 rounded-full blur-3xl scale-150"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80" 
-              alt="Pancakes with chocolate and berries from above" 
-              className="relative z-10 rounded-full w-full max-w-[500px] h-auto aspect-square object-cover shadow-2xl mx-auto border-8 border-brand-orange/10"
-            />
-          </div>
-          <div className="w-full lg:w-1/2">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">My Favorite Pancake Recipe</h2>
-            <p className="text-xl text-brand-brown-light mb-8 italic">"A simple recipe that’s delicious and easy to make!"</p>
-            
-            <ul className="space-y-4 mb-8">
-              {[
-                "1 cup of wheat flour",
-                "1 egg",
-                "1 teaspoon of baking powder",
-                "1/2 cup of milk",
-                "2 tablespoons of sugar",
-                "1/4 teaspoon of salt",
-                "2 tablespoons of vegetable oil"
-              ].map((ing, i) => (
-                <li key={i} className="flex items-center gap-3 text-brand-gray text-lg">
-                  <CheckCircle2 className="w-6 h-6 text-brand-green flex-shrink-0" />
-                  <span>{ing}</span>
-                </li>
-              ))}
-            </ul>
+      {/* 4. My Specialized Technique */}
+      <section className="bg-[#5D3E2F] py-16 px-6 border-t border-[#4A3125]">
+        <div className="max-w-xl mx-auto w-full">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold italic text-[#E2922A] mb-8 text-center">
+            My Specialized Technique
+          </h2>
+          
+          <img 
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" 
+            alt="Chocolate cake with strawberries" 
+            className="w-full rounded-2xl mb-10 shadow-2xl object-cover h-[300px] md:h-[400px]"
+          />
+          
+          <ul className="space-y-5 mb-10 pl-2">
+            {[
+              "Pudding with that perfect silky wobble",
+              "Chocolate that's rich, glossy and creamy",
+              "Cookies soft on the inside",
+              "Cupcakes moist and fluffy",
+              "Caramel fudge with real consistency",
+              "Banana pudding thick and velvety smooth",
+              "Donuts golden and crispy on the outside",
+              "Brownies fudgy and melt-in-your-mouth"
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-start gap-4">
+                <div className="mt-1 bg-[#49C66F] rounded box-content w-5 h-5 flex items-center justify-center flex-shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span className="text-white text-[17px] md:text-[19px] leading-snug font-medium tracking-wide">{item}</span>
+              </li>
+            ))}
+          </ul>
 
-            <div className="p-6 bg-brand-orange/10 rounded-2xl border border-brand-orange/20 relative">
-               <div className="absolute -top-3 left-6 bg-brand-bg px-2 text-sm font-bold text-brand-orange uppercase tracking-wider">
-                 Cooking notices just in:
-               </div>
-               <p className="text-xl font-medium italic">"And nobody notices that it’s so healthy!"</p>
-            </div>
+          <div className="pl-4">
+            <p className="text-white font-bold text-lg md:text-[20px] mb-4">
+              And nobody notices that it's:
+            </p>
+            <ul className="space-y-3 mb-6 pl-2">
+              <li className="flex items-center gap-3">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span className="text-[#D4D4D4] font-medium text-[17px] md:text-[19px]">Flour-free</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span className="text-[#D4D4D4] font-medium text-[17px] md:text-[19px]">Sugar-free</span>
+              </li>
+            </ul>
+            <p className="text-[#B3B3B3] italic text-[16px] md:text-[17px]">
+              Because it simply tastes like a normal dessert.
+            </p>
           </div>
         </div>
       </section>
