@@ -485,20 +485,24 @@ export default function Landing() {
 
       {/* 9. Section "7-Day Guarantee" */}
       <section className="bg-white py-24 px-6 text-center shadow-inner relative z-10">
+        <svg width="0" height="0" className="hidden">
+          <filter id="remove-black" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="
+              1 0 0 0 0
+              0 1 0 0 0
+              0 0 1 0 0
+              30 30 30 0 -2
+            " />
+          </filter>
+        </svg>
         <div className="max-w-3xl mx-auto flex flex-col items-center">
-          <div className="mb-10 w-48 mx-auto">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl text-[#F39116]">
-              {/* Outer jagged circle representation using path */}
-              <path d="M50 0L57.5 7.5L67.5 5L72.5 14L82.5 15L85 25L95 28.5L94 38.5L100 45L95 55L100 64L91 70L92.5 80L82.5 82.5L78.5 92.5L68.5 90L60 98.5L50 94L40 98.5L31.5 90L21.5 92.5L17.5 82.5L7.5 80L9 70L0 64L5 55L0 45L6 38.5L5 28.5L15 25L17.5 15L27.5 14L32.5 5L42.5 7.5L50 0Z" fill="currentColor"/>
-              <circle cx="50" cy="48" r="38" fill="white" stroke="#F39116" strokeWidth="2" strokeDasharray="3 3"/>
-              <text x="50" y="42" fontFamily="sans-serif" fontSize="32" fontWeight="900" fill="#F39116" textAnchor="middle">7</text>
-              <text x="50" y="58" fontFamily="sans-serif" fontSize="11" fontWeight="bold" fill="#F39116" textAnchor="middle" letterSpacing="1">DAY</text>
-              <rect x="25" y="65" width="50" height="12" rx="2" fill="#4B5563"/>
-              <text x="50" y="73.5" fontFamily="sans-serif" fontSize="7" fontWeight="bold" fill="white" textAnchor="middle" letterSpacing="0.5">GUARANTEE</text>
-              <text x="50" y="85" fontFamily="sans-serif" fontSize="5" fontWeight="bold" fill="white" textAnchor="middle">100% MONEY-BACK</text>
-              <path d="M20 70L15 85L25 80L20 70Z" fill="#F39116"/>
-              <path d="M80 70L85 85L75 80L80 70Z" fill="#F39116"/>
-            </svg>
+          <div className="mb-10 w-48 mx-auto relative">
+            <img 
+              src="https://img.freepik.com/vetores-premium/7-dias-de-devolucao-do-dinheiro-com-garantia-de-design-de-cracha_526569-45.jpg" 
+              alt="7 Day Guarantee" 
+              className="w-full h-auto drop-shadow-2xl mix-blend-multiply"
+              style={{ filter: 'url(#remove-black)' }}
+            />
           </div>
 
           <h2 className="font-serif text-3xl md:text-5xl font-bold italic text-[#DA8B2A] mb-8">
