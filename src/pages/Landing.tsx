@@ -206,8 +206,8 @@ export default function Landing() {
       </section>
 
       {/* 5. Section "Easy, Quick to Make" */}
-      <section className="bg-brand-brown-dark text-white py-24 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
+      <section className="bg-brand-brown-dark text-white py-16 md:py-24 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-6 lg:gap-16">
           <div className="w-full lg:w-1/2">
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Easy, Quick to Make</h2>
             <p className="text-xl text-white/80 mb-6 italic">With simple and Accessible ingredients and clear instructions.</p>
@@ -218,11 +218,11 @@ export default function Landing() {
               Discover more
             </button>
           </div>
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 flex justify-center">
              <img 
                src="https://i.imgur.com/pxeC7T3.png" 
                alt="A healthy granola bowl quickly prepared" 
-               className="object-contain drop-shadow-2xl h-[400px] w-full"
+               className="object-contain drop-shadow-2xl max-h-[350px] w-auto"
              />
           </div>
         </div>
