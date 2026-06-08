@@ -19,25 +19,25 @@ function SafePage() {
 
       <footer className="bg-black py-12 px-6 text-center text-white/70 text-sm mt-auto">
         <div className="max-w-4xl mx-auto space-y-4 mb-8">
-          <h3 className="font-bold text-white text-base">Aviso Legal Importante</h3>
+          <h3 className="font-bold text-white text-base">Important Legal Notice</h3>
           <p className="leading-relaxed">
-            Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair
-            do Facebook, a responsabilidade não é deles e sim do nosso site. A compra desse material não
-            garante nenhum tipo de resultado. Fazemos todos os esforços para indicar claramente e mostrar
-            todas as provas do produto e usamos resultados reais de alunos. Este website não promove nem
-            vende produtos relacionados a suplementos dietéticos não aprovados, ou quaisquer outras
-            práticas que violem as políticas do Facebook ou leis de saúde.
+            This site is not affiliated with Facebook or any Facebook entity. Once you leave
+            Facebook, it is no longer their responsibility but ours. Buying this material does not
+            guarantee any kind of result. We make every effort to clearly indicate and show
+            all real product proofs and we use actual results from our students. This website does not promote or
+            sell products related to unapproved dietary supplements, or any other
+            practices that violate Facebook policies or health laws.
             <br /><br />
-            <strong>Este site não faz parte do website do Facebook ou do Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da FACEBOOK, Inc.</strong>
+            <strong>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</strong>
           </p>
         </div>
 
         <div className="border-t border-white/10 pt-8 mt-8 flex flex-col items-center gap-4">
           <p><strong>Healthy Recipes LTDA - CNPJ: 00.000.000/0001-00</strong></p>
           <div className="flex gap-4 text-brand-orange">
-            <Link to="/privacidade" className="hover:underline text-orange-500">Política de Privacidade</Link>
+            <Link to="/privacidade" className="hover:underline text-orange-500">Privacy Policy</Link>
             <span>|</span>
-            <Link to="/termos" className="hover:underline text-orange-500">Termos de Uso</Link>
+            <Link to="/termos" className="hover:underline text-orange-500">Terms of Use</Link>
           </div>
           <p className="mt-4">© 2026 Healthy Recipes Co. Eat Right, Live Well, Feel Good.</p>
         </div>
