@@ -82,7 +82,7 @@ export default function Landing() {
              <div className="absolute bottom-0 w-[85%] md:w-[90%] h-[80%] bg-[#E89E19] rounded-t-[2.5rem] z-0"></div>
              {/* Image placeholder resembling the chef with basket */}
              <img 
-               src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" 
+               src="https://i.imgur.com/HGktzqD.png" 
                alt="Chef holding basket of foods" 
                className="relative z-10 w-[95%] object-contain pt-8 pb-0 drop-shadow-2xl"
              />
@@ -220,9 +220,9 @@ export default function Landing() {
           </div>
           <div className="w-full lg:w-1/2">
              <img 
-               src="https://images.unsplash.com/photo-1511690656956-5ef8abe9441d?auto=format&fit=crop&w=800&q=80" 
+               src="https://i.imgur.com/pxeC7T3.png" 
                alt="A healthy granola bowl quickly prepared" 
-               className="rounded-3xl shadow-2xl object-cover h-[400px] w-full"
+               className="object-contain drop-shadow-2xl h-[400px] w-full"
              />
           </div>
         </div>
@@ -457,7 +457,7 @@ export default function Landing() {
 
             <ul className="text-left space-y-5 mb-12 text-[#4A5568] text-base md:text-[17px] leading-snug">
               {[
-                "App with more than 400 recipes for diabetics",
+                "App with more than 365 recipes for diabetics",
                 "Constant updates",
                 "Built-in portion calculator",
                 "Automatic grocery list",
