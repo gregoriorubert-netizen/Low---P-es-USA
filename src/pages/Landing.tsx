@@ -21,7 +21,8 @@ import {
   Menu,
   Bookmark,
   Plus,
-  Minus
+  Minus,
+  Bell
 } from 'lucide-react';
 
 export default function Landing() {
@@ -59,8 +60,20 @@ export default function Landing() {
       
       {/* 1. Hero Section */}
       <header className="relative w-full overflow-hidden bg-[#F8F5F0]">
+        {/* Mobile Background Image with White Blur */}
+        <div 
+          className="absolute inset-0 md:hidden z-0" 
+          style={{ 
+            backgroundImage: "url('https://plus.unsplash.com/premium_photo-1675788939058-850af470cd36?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+        </div>
+
         {/* Subtle texture overlay */}
-        <div className="absolute inset-0 opacity-50 mix-blend-multiply pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cream-paper.png')" }}></div>
+        <div className="absolute inset-0 opacity-50 mix-blend-multiply pointer-events-none hidden md:block" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cream-paper.png')" }}></div>
         
         <div className="relative max-w-5xl mx-auto px-5 pt-12 pb-0 lg:pt-20 flex flex-col items-center text-center z-10">
           
@@ -189,13 +202,13 @@ export default function Landing() {
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span className="text-[#D4D4D4] font-medium text-[17px] md:text-[19px]">Flour-free</span>
+                <span className="text-[#D4D4D4] font-bold text-[17px] md:text-[19px]">Flour-free</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span className="text-[#D4D4D4] font-medium text-[17px] md:text-[19px]">Sugar-free</span>
+                <span className="text-[#D4D4D4] font-bold text-[17px] md:text-[19px]">Sugar-free</span>
               </li>
             </ul>
             <p className="text-[#B3B3B3] italic text-[16px] md:text-[17px]">
@@ -295,32 +308,45 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
           <div className="w-full lg:w-1/2 flex justify-center">
-            <div className="w-[320px] bg-white rounded-[3rem] border-[12px] border-[#1A1A1A] shadow-2xl overflow-hidden relative">
+            <div className="w-[320px] bg-[#FCFAF8] rounded-[3rem] border-[12px] border-[#1A1A1A] shadow-2xl overflow-hidden relative pb-4">
               <div className="h-6 flex justify-between items-center px-5 pt-2 mb-2">
-                 <span className="text-[10px] font-medium">11:34</span>
+                 <span className="text-[10px] font-medium text-gray-700">11:34</span>
                  <div className="flex gap-1 items-center">
                    <div className="w-3 h-3 bg-black rounded-full absolute top-3 left-1/2 -translate-x-1/2"></div>
                    <span className="text-[10px]">📶 🔋</span>
                  </div>
               </div>
               
-              <div className="px-4 py-2 flex justify-between items-center">
-                <ArrowLeft className="w-5 h-5 text-gray-700" />
-                <div className="flex gap-3">
-                  <Heart className="w-5 h-5 text-gray-700" />
-                  <Heart className="w-5 h-5 fill-red-500 text-red-500" />
+              {/* Enhanced Header */}
+              <div className="px-4 py-2 flex justify-between items-center mb-1">
+                <div className="w-9 h-9 rounded-full bg-[#F5EADF]/60 flex items-center justify-center">
+                  <Menu className="w-5 h-5 text-[#5C4538]" />
                 </div>
+                <h2 className="font-serif italic font-bold text-[22px] text-[#D48625]">Members Area</h2>
+                <div className="relative">
+                  <Bell className="w-6 h-6 text-[#5C4538]" />
+                  <div className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-[#FCFAF8]"></div>
+                </div>
+              </div>
+              
+              <div className="w-full h-px bg-[#E8E1DA] mb-4"></div>
+
+              <div className="px-4 mb-4">
+                <h3 className="font-serif text-[28px] font-bold text-[#4A3125] mb-1 leading-tight flex items-center gap-2">
+                  Hello, Chef! <span>👩‍🍳</span>
+                </h3>
+                <p className="text-[14px] text-[#6B4B3B] font-medium leading-snug">What healthy dish are you craving today?</p>
               </div>
 
               <div className="px-4">
-                <img src="https://images.unsplash.com/photo-1549395156-e0c1fe6fc7a5?auto=format&fit=crop&w=400&q=80" alt="Cinnamon Roll" className="w-full h-48 object-cover rounded-2xl" />
+                <img src="https://i.imgur.com/1ANRcCS.png" alt="Gourmet Croissant" className="w-full h-48 object-cover rounded-2xl" />
               </div>
 
               <div className="p-4">
-                <h3 className="font-bold text-lg mb-2">Healthy Cinnamon Roll</h3>
+                <h3 className="font-bold text-lg mb-2">Gourmet Croissant</h3>
                 <div className="flex items-center gap-2 mb-4">
                   <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" className="w-6 h-6 rounded-full object-cover" />
-                  <span className="text-xs font-medium text-gray-700">Chef-Natagha</span>
+                  <span className="text-xs font-medium text-gray-700">Chef-Lais</span>
                 </div>
 
                 <div className="flex gap-2 mb-4">
@@ -339,7 +365,7 @@ export default function Landing() {
                 </div>
 
                 <p className="text-xs text-gray-600 mb-6 leading-tight">
-                  Delicious and healthy cinnamon roll recipe thats low in carbs and calories!
+                  Delicious and healthy gourmet croissant recipe thats low in carbs and calories!
                 </p>
 
                 <button className="w-full bg-[#FBA94B] hover:bg-[#F59E0B] text-white py-3 rounded-full font-bold text-sm shadow-md transition-colors">
