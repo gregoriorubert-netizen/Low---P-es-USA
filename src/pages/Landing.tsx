@@ -65,11 +65,11 @@ export default function Landing() {
         <div className="relative max-w-5xl mx-auto px-5 pt-12 pb-0 lg:pt-20 flex flex-col items-center text-center z-10">
           
           <h1 className="font-serif text-[28px] md:text-5xl lg:text-6xl font-bold italic text-[#D48625] mb-5 leading-[1.2] mx-auto px-2">
-            Eat Bread, Desserts, and Your Favorite Foods Again Without Guilt — and Stop Living in Fear of Blood Sugar Spikes
+            Stop Avoiding the Foods You Love. Eat Bread, Desserts, and More — Guilt-Free and Sugar-Free.
           </h1>
           
           <p className="text-[17px] md:text-2xl text-[#656565] mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-            Learn to make easy, quick, and affordable recipes — flour-free and sugar-free.
+            Learn to make easy, quick, affordable recipes and <strong>Stop Living in Fear of Blood Sugar Spikes.</strong>
           </p>
           
           <Link to="/login" className="w-full sm:w-[90%] md:w-auto bg-[#D48625] hover:bg-[#B97520] text-white px-6 py-4 rounded-lg text-lg md:text-xl font-bold uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl mb-12 flex flex-col items-center justify-center leading-[1.3] mx-auto">
@@ -100,20 +100,20 @@ export default function Landing() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
             {[
-              { name: "Strawberry Banana Smoothie", icon: Cherry, color: "text-red-500", bg: "bg-red-50" },
-              { name: "Peanut Butter Banana Chia Pudding", icon: Leaf, color: "text-green-500", bg: "bg-green-50" },
-              { name: "Dark Chocolate Avocado Pudding", icon: Apple, color: "text-emerald-600", bg: "bg-emerald-50" },
-              { name: "Wild Berries Overnight Oats", icon: Wheat, color: "text-amber-500", bg: "bg-amber-50" },
-              { name: "Banana Oatmeal Pancakes", icon: Citrus, color: "text-yellow-500", bg: "bg-yellow-50" },
-              { name: "Spiced Walnut Zucchini Bread", icon: Carrot, color: "text-orange-500", bg: "bg-orange-50" },
-              { name: "Sweet Potato Cacao Brownies", icon: Coffee, color: "text-amber-700", bg: "bg-amber-100" },
-              { name: "Fresh Fruit Granola Açaí Bowl", icon: Cherry, color: "text-purple-500", bg: "bg-purple-50" },
-            ].map((recipe, idx) => (
+              "Pudding that comes out watery and thin",
+              "Chocolate that tastes bitter and grainy",
+              "Cookies hard as rocks",
+              "Cupcakes dry on the inside",
+              "Caramel fudge with no consistency",
+              "Banana pudding with no creaminess",
+              "Donuts that come out dense and flat",
+              "Brownies with a rubbery texture",
+            ].map((topic, idx) => (
               <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-brand-bg transition-colors cursor-pointer group">
-                <div className={`${recipe.bg} ${recipe.color} p-3 rounded-xl group-hover:scale-110 transition-transform`}>
-                  <recipe.icon className="w-6 h-6" />
+                <div className="text-2xl group-hover:scale-110 transition-transform">
+                  😔
                 </div>
-                <p className="font-medium text-lg leading-tight">{recipe.name}</p>
+                <p className="font-medium text-lg leading-tight text-gray-800">{topic}</p>
               </div>
             ))}
           </div>
@@ -290,7 +290,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Clean Sweet APP Section */}
+      {/* Sweet&Free APP Section */}
       <section className="bg-[#F8F5F0] py-24 px-6 border-y border-[#3E271D]/5">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
@@ -366,7 +366,7 @@ export default function Landing() {
 
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
             <h2 className="font-serif text-4xl md:text-5xl font-bold italic text-[#D48625] mb-8">
-              Clean Sweet APP
+              Sweet&Free APP
             </h2>
             
             <ul className="space-y-5 mb-10 w-full max-w-md">
@@ -398,6 +398,11 @@ export default function Landing() {
         </div>
       </section>
 
+      <div className="bg-[#624434] w-full py-5 text-center shadow-inner relative z-20">
+        <h3 className="text-[#E7943A] font-bold tracking-[0.2em] uppercase text-xl">
+          What People Are Saying
+        </h3>
+      </div>
       {/* 7. Section "Testimonials" */}
       <section className="bg-[#FAF3E0] py-24 px-6 text-center">
         <div className="max-w-4xl mx-auto">
@@ -416,6 +421,53 @@ export default function Landing() {
             />
             <p className="font-bold text-lg text-[#2D3748]">Jane Smith</p>
             <p className="text-brand-brown-light text-sm tracking-wider uppercase">Health Enthusiast</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7.5 Section "Launch Bonuses" */}
+      <section className="bg-[#5D3E2F] py-24 px-6 text-center border-t border-b border-[#4A3125] relative z-10 focus-section">
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold italic text-[#DA8B2A] mb-16">
+            Launch Bonuses
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 w-full">
+            {/* Bonus 1 */}
+            <div className="bg-[#6B4B3B]/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-2xl border border-[#866352] transition-transform hover:-translate-y-2">
+              <img src="https://i.imgur.com/YgRDdCu.png" alt="The Golden Tea Recipe" className="w-full max-w-[280px] h-auto rounded-xl mb-8 shadow-2xl drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" />
+              <p className="text-[#F8F5F0] font-serif text-[20px] md:text-[22px] italic leading-snug font-bold mb-4 px-2">
+                The golden tea recipe, which can reduce fasting blood sugar by up to 40 points in less than 14 days.
+              </p>
+              <div className="mt-auto pt-4 flex flex-col items-center">
+                <span className="text-[#a8a8a8] line-through text-lg mb-1 decoration-red-500/70 decoration-2">$9.90</span>
+                <span className="text-[#4cd964] font-bold text-2xl uppercase tracking-wider">FREE!</span>
+              </div>
+            </div>
+
+            {/* Bonus 2 */}
+            <div className="bg-[#6B4B3B]/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-2xl border border-[#866352] transition-transform hover:-translate-y-2">
+              <img src="https://i.imgur.com/lJo6A9f.png" alt="The Black List of Medications" className="w-full max-w-[280px] h-auto rounded-xl mb-8 shadow-2xl drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" />
+              <p className="text-[#F8F5F0] font-serif text-[20px] md:text-[22px] italic leading-snug font-bold mb-4 px-2">
+                The blacklist of medications and supplements that raise blood sugar the most — and that most people take without knowing...
+              </p>
+              <div className="mt-auto pt-4 flex flex-col items-center">
+                <span className="text-[#a8a8a8] line-through text-lg mb-1 decoration-red-500/70 decoration-2">$9.90</span>
+                <span className="text-[#4cd964] font-bold text-2xl uppercase tracking-wider">FREE!</span>
+              </div>
+            </div>
+
+            {/* Bonus 3 */}
+            <div className="bg-[#6B4B3B]/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-2xl border border-[#866352] transition-transform hover:-translate-y-2">
+              <img src="https://i.imgur.com/HLy6Y5s.png" alt="The Metabolic Recipes" className="w-full max-w-[280px] h-auto rounded-xl mb-8 shadow-2xl drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" />
+              <p className="text-[#F8F5F0] font-serif text-[20px] md:text-[22px] italic leading-snug font-bold mb-4 px-2">
+                Metabolic Recipes That Help Reduce Inflammation and Support Weight Loss
+              </p>
+              <div className="mt-auto pt-4 flex flex-col items-center">
+                <span className="text-[#a8a8a8] line-through text-lg mb-1 decoration-red-500/70 decoration-2">$19.90</span>
+                <span className="text-[#4cd964] font-bold text-2xl uppercase tracking-wider">FREE!</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -442,7 +494,7 @@ export default function Landing() {
             Eat Without Fear Again
           </h3>
           <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#DA8B2A] italic mb-12">
-            Clean Sweet App
+            Sweet&Free APP
           </h3>
 
           <div className="bg-white border-2 border-[#DA8B2A] rounded-2xl p-8 md:p-10 w-full max-w-[28rem] shadow-2xl relative mx-auto">
@@ -527,6 +579,42 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* 9.5 Section "Who I Am" */}
+      <section className="bg-white pt-24 pb-28 px-6 relative z-10 w-full overflow-hidden border-b border-gray-100">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-24">
+          
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+            {/* The yellow backdrop container */}
+            <div className="relative w-full max-w-[320px] rounded-t-[2.5rem] bg-[#EFA825] flex items-end justify-center h-[380px] shadow-lg">
+              <img 
+                src="https://i.imgur.com/HGktzqD.png" 
+                alt="Chef Lais" 
+                className="absolute bottom-0 w-[115%] max-w-none object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.25)]" 
+                style={{ height: '110%' }}
+              />
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 text-left flex flex-col justify-center">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold italic text-[#D48625] mb-8">
+              Who I Am
+            </h2>
+            <div className="space-y-6 text-[#4A5568] text-[20px] leading-relaxed">
+              <p>
+                I'm Lais, internationally recognized as one of the world's top pastry chefs and a pioneer in healthy baking.
+              </p>
+              <p>
+                But my story changed when I was diagnosed with insulin resistance and lactose intolerance. Suddenly, everything I loved — bread, sweets, desserts — seemed impossible to eat without hurting my health.
+              </p>
+              <p>
+                That's when I made it my mission to reinvent my favorite recipes, so I could finally eat what I loved without the guilt.
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
       {/* 10. Section "FAQ" */}
       <section className="bg-[#FAF8F5] py-24 px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto flex flex-col items-center">
@@ -582,7 +670,6 @@ export default function Landing() {
         </div>
         
         <div className="border-t border-white/10 pt-8 mt-8 flex flex-col items-center gap-4">
-          <p><strong>Healthy Recipes LTDA - CNPJ: 00.000.000/0001-00</strong></p>
           <div className="flex gap-4 text-brand-orange">
             <Link to="/privacidade" className="hover:underline text-orange-500">Privacy Policy</Link>
             <span>|</span>
