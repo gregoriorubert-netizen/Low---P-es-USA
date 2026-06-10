@@ -65,7 +65,6 @@ export default function App() {
         <Route path="/" element={isBot ? <SafePage /> : <Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/recepis" element={<Recipes />} />
         <Route path="/privacidade" element={<Privacy />} />
         <Route path="/termos" element={<Terms />} />
       </Routes>

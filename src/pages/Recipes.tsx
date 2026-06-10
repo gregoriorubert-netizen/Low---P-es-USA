@@ -7,66 +7,67 @@ import {
   Heart,
   Clock,
   Filter,
-  ChevronRight
+  ChevronRight,
+  X
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const recipesMock = [
-  {
-    id: 1,
-    title: 'Flour-free Chocolate Cake',
-    category: 'Dessert',
-    time: '45 min',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
-    favorite: true
-  },
-  {
-    id: 2,
-    title: 'Keto Avocado Brownies',
-    category: 'Snack',
-    time: '30 min',
-    image: 'https://images.unsplash.com/photo-1604085792782-8d92f276d7d8?auto=format&fit=crop&w=600&q=80',
-    favorite: false
-  },
-  {
-    id: 3,
-    title: 'Almond Flour Pancakes',
-    category: 'Breakfast',
-    time: '15 min',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80',
-    favorite: false
-  },
-  {
-    id: 4,
-    title: 'Chia Seed Pudding',
-    category: 'Breakfast',
-    time: '5 min',
-    image: 'https://images.unsplash.com/photo-1533089860649-16016e165dca?auto=format&fit=crop&w=600&q=80',
-    favorite: true
-  },
-  {
-    id: 5,
-    title: 'Sugar-free Strawberry Cheesecake',
-    category: 'Dessert',
-    time: '60 min',
-    image: 'https://images.unsplash.com/photo-1551024506-0baa27542d31?auto=format&fit=crop&w=600&q=80',
-    favorite: false
-  },
-  {
-    id: 6,
-    title: 'Zucchini Noodles with Pesto',
-    category: 'Dinner',
-    time: '20 min',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80',
-    favorite: false
-  }
-];
+import { categories, recipesMock, Recipe } from '../data/recipes';
 
-const categories = ["All", "Breakfast", "Lunch", "Dinner", "Dessert", "Snacks"];
+function RecipeCard({ recipe, onClick }: { recipe: Recipe, onClick: () => void }) {
+  return (
+    <div 
+      className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#3E271D]/5 group cursor-pointer flex flex-row sm:flex-col h-32 sm:h-auto whitespace-normal"
+      onClick={onClick}
+    >
+      {/* Image */}
+      <div className="w-32 sm:w-full h-full sm:h-48 relative overflow-hidden flex-shrink-0">
+        <img 
+          src={recipe.image} 
+          alt={recipe.title} 
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+        />
+        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur p-2 rounded-full cursor-pointer shadow-sm hover:bg-white transition-colors hidden sm:block">
+          <Heart className={`w-5 h-5 ${recipe.favorite ? 'fill-[#D48625] text-[#D48625]' : 'text-[#6A4E3D]'}`} />
+        </div>
+      </div>
+      
+      {/* Content */}
+      <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between text-left">
+        <div>
+          <div className="flex justify-between items-start mb-1 sm:mb-2 text-xs sm:text-sm text-[#6A4E3D] font-medium tracking-wide uppercase">
+            <span>{recipe.category}</span>
+            <span className="flex items-center gap-1">
+              <Clock className="w-3.5 h-3.5" /> {recipe.time}
+            </span>
+          </div>
+          <h4 className="font-serif text-lg leading-tight font-bold text-[#3E271D] group-hover:text-[#D48625] transition-colors line-clamp-2 sm:mb-4">
+            {recipe.title}
+          </h4>
+        </div>
+        
+        {/* Action row on desktop, hidden on mobile in favor of row layout */}
+        <div className="hidden sm:flex justify-between items-center mt-4">
+          <span className="text-[#D48625] text-sm font-bold flex items-center gap-1">
+            View Recipe <ChevronRight className="w-4 h-4" />
+          </span>
+        </div>
+        
+        {/* Mobile action indicator */}
+        <div className="sm:hidden self-end mt-auto">
+          <div className="w-8 h-8 rounded-full bg-[#F8F5F0] flex items-center justify-center text-[#D48625]">
+             <ChevronRight className="w-5 h-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Recipes() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
 
   const filteredRecipes = recipesMock.filter(recipe => {
     const matchesCategory = activeCategory === "All" || recipe.category === activeCategory;
@@ -141,93 +142,71 @@ export default function Recipes() {
           ))}
         </div>
 
-        {/* Popular / Featured Section (Optional space) */}
-        {activeCategory === "All" && !searchQuery && (
-          <div className="mb-10">
+        {/* Recipe Display */}
+        {searchQuery ? (
+          <>
             <div className="flex justify-between items-end mb-4">
-              <h3 className="text-xl font-bold font-serif text-[#3E271D]">Recipe of the Week</h3>
+              <h3 className="text-xl font-bold font-serif text-[#3E271D]">
+                Search Results
+              </h3>
             </div>
-            <div className="relative w-full h-48 md:h-64 rounded-3xl overflow-hidden shadow-lg group cursor-pointer">
-              <img 
-                src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" 
-                alt="Featured Recipe" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6">
-                <span className="w-max bg-[#D48625] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">New</span>
-                <h4 className="text-white text-2xl font-bold font-serif mb-1">Mushroom & Spinach Risotto</h4>
-                <div className="flex items-center text-white/80 text-sm gap-4">
-                  <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 35 min</span>
-                  <span>Dinner</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredRecipes.length > 0 ? (
+                filteredRecipes.map(recipe => (
+                  <RecipeCard key={recipe.id} recipe={recipe} onClick={() => setSelectedRecipe(recipe)} />
+                ))
+              ) : (
+                <div className="col-span-full py-12 text-center">
+                  <div className="w-16 h-16 bg-[#F8F5F0] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Search className="w-8 h-8 text-[#6A4E3D] opacity-50" />
+                  </div>
+                  <h3 className="text-xl font-bold font-serif text-[#3E271D] mb-2">No recipes found</h3>
+                  <p className="text-[#6A4E3D]">Try adjusting your search or filters.</p>
                 </div>
-              </div>
+              )}
             </div>
+          </>
+        ) : activeCategory !== "All" ? (
+          <>
+            <div className="flex justify-between items-end mb-4">
+              <h3 className="text-xl font-bold font-serif text-[#3E271D]">
+                {activeCategory}
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredRecipes.length > 0 ? (
+                filteredRecipes.map(recipe => (
+                  <RecipeCard key={recipe.id} recipe={recipe} onClick={() => setSelectedRecipe(recipe)} />
+                ))
+              ) : (
+                <div className="col-span-full py-12 text-center border-2 border-dashed border-[#3E271D]/10 rounded-3xl">
+                  <h3 className="text-xl font-bold font-serif text-[#3E271D] mb-2">Coming Soon</h3>
+                  <p className="text-[#6A4E3D]">We are adding recipes for this category soon!</p>
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className="space-y-12">
+            {categories.filter(c => c !== "All").map(category => {
+              const categoryRecipes = recipesMock.filter(r => r.category === category);
+              if (categoryRecipes.length === 0) return null;
+              
+              return (
+                <div key={category}>
+                  <h3 className="text-2xl font-bold font-serif text-[#3E271D] mb-6 border-b border-[#3E271D]/10 pb-2">
+                    {category}
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {categoryRecipes.map(recipe => (
+                      <RecipeCard key={recipe.id} recipe={recipe} onClick={() => setSelectedRecipe(recipe)} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         )}
-
-        {/* Recipe Grid */}
-        <div className="flex justify-between items-end mb-4">
-          <h3 className="text-xl font-bold font-serif text-[#3E271D]">
-            {searchQuery ? "Search Results" : "All Recipes"}
-          </h3>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredRecipes.length > 0 ? (
-            filteredRecipes.map((recipe) => (
-              <div key={recipe.id} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#3E271D]/5 group cursor-pointer flex flex-row sm:flex-col overflow-hidden h-32 sm:h-auto">
-                {/* Image */}
-                <div className="w-32 sm:w-full h-full sm:h-48 relative overflow-hidden flex-shrink-0">
-                  <img 
-                    src={recipe.image} 
-                    alt={recipe.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                  />
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur p-2 rounded-full cursor-pointer shadow-sm hover:bg-white transition-colors hidden sm:block">
-                    <Heart className={`w-5 h-5 ${recipe.favorite ? 'fill-[#D48625] text-[#D48625]' : 'text-[#6A4E3D]'}`} />
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
-                  <div>
-                    <div className="flex justify-between items-start mb-1 sm:mb-2 text-xs sm:text-sm text-[#6A4E3D] font-medium tracking-wide uppercase">
-                      <span>{recipe.category}</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" /> {recipe.time}
-                      </span>
-                    </div>
-                    <h4 className="font-serif text-lg leading-tight font-bold text-[#3E271D] group-hover:text-[#D48625] transition-colors line-clamp-2 sm:mb-4">
-                      {recipe.title}
-                    </h4>
-                  </div>
-                  
-                  {/* Action row on desktop, hidden on mobile in favor of row layout */}
-                  <div className="hidden sm:flex justify-between items-center mt-4">
-                    <span className="text-[#D48625] text-sm font-bold flex items-center gap-1">
-                      View Recipe <ChevronRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                  
-                  {/* Mobile action indicator */}
-                  <div className="sm:hidden self-end mt-auto">
-                    <div className="w-8 h-8 rounded-full bg-[#F8F5F0] flex items-center justify-center text-[#D48625]">
-                       <ChevronRight className="w-5 h-5" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="col-span-full py-12 text-center">
-              <div className="w-16 h-16 bg-[#F8F5F0] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-[#6A4E3D] opacity-50" />
-              </div>
-              <h3 className="text-xl font-bold font-serif text-[#3E271D] mb-2">No recipes found</h3>
-              <p className="text-[#6A4E3D]">Try adjusting your search or filters.</p>
-            </div>
-          )}
-        </div>
       </main>
 
       {/* Mobile Bottom Navigation Layout (App-feel) */}
@@ -245,6 +224,104 @@ export default function Recipes() {
           <span className="text-[10px] font-bold tracking-wider uppercase">Profile</span>
         </Link>
       </nav>
+
+      {/* Recipe Modal */}
+      {selectedRecipe && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+          <div className="bg-[#FDFBF7] w-full max-w-3xl min-h-[50vh] max-h-[90vh] rounded-[2rem] shadow-2xl overflow-y-auto relative animate-in fade-in zoom-in duration-300 pb-10">
+            {/* Close Button */}
+            <button 
+              onClick={() => setSelectedRecipe(null)}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-md transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <div className="w-full h-64 sm:h-80 relative overflow-hidden">
+              <img 
+                src={selectedRecipe.image} 
+                alt={selectedRecipe.title} 
+                className="w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                <span className="w-max bg-[#D48625] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 shadow-md">
+                  {selectedRecipe.category}
+                </span>
+                <h2 className="text-white text-3xl sm:text-4xl font-bold font-serif leading-tight">
+                  {selectedRecipe.title}
+                </h2>
+                <div className="flex items-center gap-4 mt-3 text-white/90 text-sm sm:text-base font-medium">
+                  <span className="flex items-center gap-1.5"><Clock className="w-5 h-5 opacity-80" /> {selectedRecipe.time}</span>
+                  <span className="flex items-center gap-1.5"><Heart className="w-5 h-5 opacity-80" /> {selectedRecipe.favorite ? "Favorited" : "Save"}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="p-6 sm:p-10">
+              <p className="text-[#6A4E3D] text-lg sm:text-xl font-medium leading-relaxed italic border-l-4 border-[#D48625] pl-4 mb-8">
+                {selectedRecipe.description}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {/* Ingredients */}
+                <div>
+                  <h3 className="text-xl font-bold font-serif text-[#3E271D] mb-5 border-b border-[#3E271D]/10 pb-2">Ingredients</h3>
+                  <ul className="space-y-3">
+                    {selectedRecipe.ingredients ? (
+                      selectedRecipe.ingredients.map((ing, i) => (
+                        <li key={i} className="flex gap-3 text-[#3E271D]">
+                          <span className="text-[#D48625] font-bold">•</span>
+                          <span>{ing}</span>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="text-[#6A4E3D] italic">Check the full book for ingredients.</li>
+                    )}
+                  </ul>
+                </div>
+                
+                {/* Instructions */}
+                <div>
+                  <h3 className="text-xl font-bold font-serif text-[#3E271D] mb-5 border-b border-[#3E271D]/10 pb-2">Method</h3>
+                  <ol className="space-y-4">
+                    {selectedRecipe.method ? (
+                      selectedRecipe.method.map((step, i) => (
+                        <li key={i} className="flex gap-4">
+                          <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#F5EADF] text-[#D48625] flex items-center justify-center font-bold text-sm font-serif">
+                            {i+1}
+                          </span>
+                          <span className="text-[#3E271D] leading-relaxed pt-0.5">{step}</span>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="text-[#6A4E3D] italic">Check the full book for the method.</li>
+                    )}
+                  </ol>
+                </div>
+              </div>
+
+              {/* Tips & Science */}
+              {(selectedRecipe.tip || selectedRecipe.science) && (
+                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-[#3E271D]/10">
+                  {selectedRecipe.tip && (
+                    <div className="bg-[#FFFDF9] border border-[#D48625]/20 p-5 rounded-2xl shadow-sm relative overflow-hidden">
+                      <div className="w-1.5 h-full bg-[#D48625] absolute left-0 top-0"></div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#D48625] mb-2">Baker's Tip</h4>
+                      <p className="text-[#6A4E3D] text-sm leading-relaxed">{selectedRecipe.tip}</p>
+                    </div>
+                  )}
+                  {selectedRecipe.science && (
+                    <div className="bg-[#F6F8F6] border border-[#6A8A5A]/20 p-5 rounded-2xl shadow-sm relative overflow-hidden">
+                      <div className="w-1.5 h-full bg-[#6A8A5A] absolute left-0 top-0"></div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#6A8A5A] mb-2">The Science</h4>
+                      <p className="text-[#6A4E3D] text-sm leading-relaxed">{selectedRecipe.science}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* Include custom CSS for hiding scrollbar if not in global css */}
       <style>{`
