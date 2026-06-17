@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/cleanbakery",
-      "destination": "/cleanbakery/index.html"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

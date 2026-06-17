@@ -10,7 +10,7 @@ export default function Login() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === 'sweetfree123') {
-      navigate('/recipes');
+      window.location.href = 'https://sugarfreerecipes.vercel.app/cleanbakery';
     } else {
       setError('Invalid password. Please try again.');
     }
