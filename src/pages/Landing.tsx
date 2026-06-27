@@ -554,9 +554,12 @@ export default function Landing() {
               ))}
             </ul>
 
-            <button className="w-full bg-[#D4892A] hover:bg-[#C27922] text-white font-bold py-[18px] px-6 rounded-lg shadow-xl text-lg md:text-xl transition-all transform hover:-translate-y-1 active:translate-y-0 uppercase tracking-widest">
+            <a 
+              href="https://pay.hotmart.com/G106327267F?checkoutMode=10"
+              className="block w-full text-center bg-[#D4892A] hover:bg-[#C27922] text-white font-bold py-[18px] px-6 rounded-lg shadow-xl text-lg md:text-xl transition-all transform hover:-translate-y-1 active:translate-y-0 uppercase tracking-widest no-underline"
+            >
               I Want My Access Now
-            </button>
+            </a>
           </div>
         </div>
       </section>
