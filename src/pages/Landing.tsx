@@ -85,10 +85,10 @@ export default function Landing() {
             Learn to make easy, quick, affordable recipes and <strong>Stop Living in Fear of Blood Sugar Spikes.</strong>
           </p>
           
-          <Link to="/login" className="w-full sm:w-[90%] md:w-auto bg-[#D48625] hover:bg-[#B97520] text-white px-6 py-4 rounded-lg text-lg md:text-xl font-bold uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl mb-12 flex flex-col items-center justify-center leading-[1.3] mx-auto">
+          <a href="#oferta" className="w-full sm:w-[90%] md:w-auto bg-[#D48625] hover:bg-[#B97520] text-white px-6 py-4 rounded-lg text-lg md:text-xl font-bold uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl mb-12 flex flex-col items-center justify-center leading-[1.3] mx-auto no-underline">
             <span>I WANT TO MAKE</span>
             <span>DELICIOUS RECIPES</span>
-          </Link>
+          </a>
           
           <div className="w-full max-w-sm md:max-w-md mx-auto relative flex justify-center items-end mt-2 md:mt-8">
              {/* Background Shape */}
@@ -227,9 +227,9 @@ export default function Landing() {
             <p className="text-lg text-white/90 mb-10 leading-relaxed">
               No more complicated cooking! Prepare delicious meals in a snap. Spend less time in the kitchen and more time enjoying vibrant, nourishing food with the people you love.
             </p>
-            <button className="flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange-hover text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-xl hover:shadow-brand-orange/20">
+            <a href="#oferta" className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange-hover text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-xl hover:shadow-brand-orange/20 no-underline">
               Discover more
-            </button>
+            </a>
           </div>
           <div className="w-full lg:w-1/2 flex justify-center">
              <img 
@@ -415,10 +415,10 @@ export default function Landing() {
               ))}
             </ul>
 
-            <Link to="/login" className="w-full sm:w-[90%] md:w-auto bg-[#D48625] hover:bg-[#B97520] text-white px-8 py-5 rounded-lg text-lg md:text-xl font-bold uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl flex flex-col items-center justify-center leading-tight">
+            <a href="#oferta" className="w-full sm:w-[90%] md:w-auto bg-[#D48625] hover:bg-[#B97520] text-white px-8 py-5 rounded-lg text-lg md:text-xl font-bold uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl flex flex-col items-center justify-center leading-tight no-underline">
               <span>I WANT TO MAKE</span>
               <span>DELICIOUS RECIPES</span>
-            </Link>
+            </a>
           </div>
           
         </div>
@@ -499,7 +499,7 @@ export default function Landing() {
       </section>
 
       {/* 8. Section "Today's Offer" */}
-      <section className="bg-[#FAF8F5] py-24 px-6 text-center shadow-inner relative z-10">
+      <section id="oferta" className="bg-[#FAF8F5] py-24 px-6 text-center shadow-inner relative z-10">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <h2 className="font-serif text-4xl md:text-5xl font-bold italic text-[#DA8B2A] mb-8">
             Today's Offer
