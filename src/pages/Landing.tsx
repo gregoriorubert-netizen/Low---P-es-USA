@@ -103,118 +103,124 @@ export default function Landing() {
         </div>
       </header>
 
-      {/* 3. Section "Common Healthy Recipes" */}
-      <section className="bg-white py-20 px-6 border-y border-brand-brown-dark/5">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Common Healthy Recipes</h2>
-            <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-            {[
-              "Pudding that comes out watery and thin",
-              "Chocolate that tastes bitter and grainy",
-              "Cookies hard as rocks",
-              "Cupcakes dry on the inside",
-              "Caramel fudge with no consistency",
-              "Banana pudding with no creaminess",
-              "Donuts that come out dense and flat",
-              "Brownies with a rubbery texture",
-            ].map((topic, idx) => (
-              <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-brand-bg transition-colors cursor-pointer group">
-                <div className="text-2xl group-hover:scale-110 transition-transform">
-                  😔
-                </div>
-                <p className="font-medium text-lg leading-tight text-gray-800">{topic}</p>
-              </div>
-            ))}
-          </div>
+      {/* 3 + 4. Comparison: Common Healthy Recipes vs My Specialized Technique */}
+      <section className="bg-[#5D3E2F] py-16 md:py-20 px-6 border-y border-[#4A3125]">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-          <div className="mt-16 bg-[#5D3E2F] p-8 md:p-10 rounded-[2rem] max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
-            <ul className="space-y-4 text-white text-[17px] md:text-xl font-medium relative z-10">
-              <li className="flex items-start gap-4 font-bold text-xl md:text-2xl mb-6">
-                <span>👉</span> 
-                <span>And the worst part...</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span>👉</span> 
-                <span>You follow the recipe to the letter</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span>👉</span> 
-                <span>You spend money on expensive ingredients</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span>👉</span> 
-                <span>You wait with hope</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span>👉</span> 
-                <span>And the result is a disappointment.</span>
-              </li>
+          {/* LEFT column: Common Healthy Recipes (the problems) */}
+          <div className="flex flex-col">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold italic text-[#E2922A] mb-8 text-center">
+              Common Healthy Recipes
+            </h2>
+
+            <img
+              src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=800&q=80"
+              alt="A common homemade cake with a slice removed"
+              className="w-full rounded-2xl mb-10 shadow-2xl object-cover h-[300px] md:h-[360px]"
+            />
+
+            <ul className="space-y-5 mb-10 pl-2">
+              {[
+                "Pudding that comes out watery and thin",
+                "Chocolate that tastes bitter and grainy",
+                "Cookies hard as rocks",
+                "Cupcakes dry on the inside",
+                "Caramel fudge with no consistency",
+                "Banana pudding with no creaminess",
+                "Donuts that come out dense and flat",
+                "Brownies with a rubbery texture",
+              ].map((topic, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <span className="text-2xl leading-none flex-shrink-0">😖</span>
+                  <span className="text-white text-[17px] md:text-[19px] leading-snug font-medium tracking-wide">{topic}</span>
+                </li>
+              ))}
             </ul>
-          </div>
-        </div>
-      </section>
 
-      {/* 4. My Specialized Technique */}
-      <section className="bg-[#5D3E2F] py-16 px-6 border-t border-[#4A3125]">
-        <div className="max-w-xl mx-auto w-full">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold italic text-[#E2922A] mb-8 text-center">
-            My Specialized Technique
-          </h2>
-          
-          <img 
-            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" 
-            alt="Chocolate cake with strawberries" 
-            className="w-full rounded-2xl mb-10 shadow-2xl object-cover h-[300px] md:h-[400px]"
-          />
-          
-          <ul className="space-y-5 mb-10 pl-2">
-            {[
-              "Pudding with that perfect silky wobble",
-              "Chocolate that's rich, glossy and creamy",
-              "Cookies soft on the inside",
-              "Cupcakes moist and fluffy",
-              "Caramel fudge with real consistency",
-              "Banana pudding thick and velvety smooth",
-              "Donuts golden and crispy on the outside",
-              "Brownies fudgy and melt-in-your-mouth"
-            ].map((item, idx) => (
-              <li key={idx} className="flex items-start gap-4">
-                <div className="mt-1 bg-[#49C66F] rounded box-content w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="mt-auto bg-[#6B4B3B] p-8 md:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden">
+              <ul className="space-y-4 text-white text-[17px] md:text-xl font-medium relative z-10">
+                <li className="flex items-start gap-4 font-bold text-xl md:text-2xl mb-6">
+                  <span>👉</span>
+                  <span>And the worst part...</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <span>👉</span>
+                  <span>You follow the recipe to the letter</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <span>👉</span>
+                  <span>You spend money on expensive ingredients</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <span>👉</span>
+                  <span>You wait with hope</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <span>👉</span>
+                  <span>And the result is a disappointment.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* RIGHT column: My Specialized Technique (the results) */}
+          <div className="flex flex-col">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold italic text-[#E2922A] mb-8 text-center">
+              My Specialized Technique
+            </h2>
+
+            <img
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+              alt="Chocolate cake with strawberries"
+              className="w-full rounded-2xl mb-10 shadow-2xl object-cover h-[300px] md:h-[360px]"
+            />
+
+            <ul className="space-y-5 mb-10 pl-2">
+              {[
+                "Pudding with that perfect silky wobble",
+                "Chocolate that's rich, glossy and creamy",
+                "Cookies soft on the inside",
+                "Cupcakes moist and fluffy",
+                "Caramel fudge with real consistency",
+                "Banana pudding thick and velvety smooth",
+                "Donuts golden and crispy on the outside",
+                "Brownies fudgy and melt-in-your-mouth"
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <div className="mt-1 bg-[#49C66F] rounded box-content w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <span className="text-white text-[17px] md:text-[19px] leading-snug font-medium tracking-wide">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-auto bg-[#6B4B3B] p-8 md:p-10 rounded-[2rem] shadow-2xl">
+              <p className="text-white font-bold text-lg md:text-[20px] mb-4">
+                And nobody notices that it's:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center gap-3">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
-                </div>
-                <span className="text-white text-[17px] md:text-[19px] leading-snug font-medium tracking-wide">{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="pl-4">
-            <p className="text-white font-bold text-lg md:text-[20px] mb-4">
-              And nobody notices that it's:
-            </p>
-            <ul className="space-y-3 mb-6 pl-2">
-              <li className="flex items-center gap-3">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span className="text-[#D4D4D4] font-bold text-[17px] md:text-[19px]">Flour-free</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span className="text-[#D4D4D4] font-bold text-[17px] md:text-[19px]">Sugar-free</span>
-              </li>
-            </ul>
-            <p className="text-[#B3B3B3] italic text-[16px] md:text-[17px]">
-              Because it simply tastes like a normal dessert.
-            </p>
+                  <span className="text-[#EDE3DA] font-bold text-[17px] md:text-[19px]">Flour-free</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#49C66F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span className="text-[#EDE3DA] font-bold text-[17px] md:text-[19px]">Sugar-free</span>
+                </li>
+              </ul>
+              <p className="text-[#D6C7BB] italic text-[16px] md:text-[17px]">
+                Because it simply tastes like a normal dessert.
+              </p>
+            </div>
           </div>
+
         </div>
       </section>
 
